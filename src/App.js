@@ -4,6 +4,8 @@ import { ListItem } from './components/ListItem/ListItem';
 import './App.scss';
 function App() {
   
+const[head, setHead] = useState()
+
  const todos = [
   {
     id: 1,
@@ -21,13 +23,15 @@ function App() {
     isComplated: false,
    },
  ]
-
+ 
   return (
     <div>
-     <input type="text" placeholder="ToDo text"/>
+     <input onChange={(evt) => setHead(evt.target.value)} type="text" placeholder="ToDo text"/>
+     
      <List>
+    
       {todos.map((todo) =>(
-        <ListItem text={todo.text} id={todo.id}/>
+        <ListItem text={head} id={todo.id}/>
       ))}
      </List>
     </div>
